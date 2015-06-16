@@ -50,6 +50,8 @@ object Application extends Controller {
       .replaceAll("""<familyName>.*?</familyName>""", "<familyName>"+user.familyName+"</familyName>")
       .replaceAll("""<bday .*>.*?</bday>""", """<bday dtf="dd-MM-yyyy">"""+user.birthDate+"</bday>")
       .replaceAll("""<gender>.*?</gender>""", "<gender>"+user.gender+"</gender>")
+      .replaceAll("\r\n", "\n")
+      .replaceAll("\r", "\n")
   }
 
   def signXml(xmlString:String, sessionId:String):String = {
